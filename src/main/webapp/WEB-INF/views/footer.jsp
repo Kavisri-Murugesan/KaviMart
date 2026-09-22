@@ -1,0 +1,1 @@
+</main><footer class="footer">KaviMart · A multi-seller marketplace built with Java Servlets, H2, and JSP.</footer><script>window.contextPath="${pageContext.request.contextPath}";</script><script src="${pageContext.request.contextPath}/assets/app.js"></script></body></html>
