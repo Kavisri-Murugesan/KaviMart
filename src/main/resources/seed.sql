@@ -1,9 +1,9 @@
 MERGE INTO users (id, name, email, password_hash, role)
-KEY(email) VALUES (1, 'KaviMart Admin', 'admin@kavimart.local', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN');
+KEY(email) VALUES (1, 'KaviMart Admin', 'admin@kavimart.local', '$2a$10$qnWRlxxaHz83eOoPR9OGg.OVOEGw00qMgLF.U7XEkIQIV8EIGayvm', 'ADMIN');
 MERGE INTO users (id, name, email, password_hash, role)
-KEY(email) VALUES (2, 'Demo Seller', 'seller@kavimart.local', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'SELLER');
+KEY(email) VALUES (2, 'Demo Seller', 'seller@kavimart.local', '$2a$10$uShwlQy.FQKJapF.maWyC.tTePi3pAtDRO8F2/ZdkRJEVf55JGLbi', 'SELLER');
 MERGE INTO users (id, name, email, password_hash, role)
-KEY(email) VALUES (3, 'Demo Buyer', 'buyer@kavimart.local', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'BUYER');
+KEY(email) VALUES (3, 'Demo Buyer', 'buyer@kavimart.local', '$2a$10$uShwlQy.FQKJapF.maWyC.tTePi3pAtDRO8F2/ZdkRJEVf55JGLbi', 'BUYER');
 
 MERGE INTO products (id, seller_id, name, description, price, stock_qty, category, image_url)
 KEY(id) VALUES (1, 2, 'Handcrafted Notebook', 'A durable notebook for ideas, plans, and sketches.', 299.00, 25, 'Stationery', 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800');
