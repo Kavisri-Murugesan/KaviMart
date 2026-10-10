@@ -30,3 +30,16 @@ public class JdbcSalesDao {
                 try (ResultSet r = p.executeQuery()) { while (r.next()) s.getTopProducts().add(new SalesStats.TopProduct(r.getString("pname"), r.getLong("units"), r.getBigDecimal("rev"))); }
             }
             try (PreparedStatement p = c.prepareStatement("SELECT name, stock_qty FROM products WHERE seller_id=? AND stock_qty<=5 ORDER BY stock_qty, name")) {
+                            try (PreparedStatement p = c.prepareStatement("SELECT name, stock_qty FROM products WHERE seller_id=? AND stock_qty<=5 ORDER BY stock_qty, name")) {
+                                                p.setLong(1, sellerId);
+                try (ResultSet r = p.executeQuery()) { while (r.next()) s.getLowStock().add(new SalesStats.LowStock(r.getString("name"), r.getInt("stock_qty"))); }
+            }
+            try (PreparedStatement p = c.prepareStatement("SELECT COUNT(*) FROM products WHERE seller_id=?")) {
+                p.setLong(1, sellerId);
+                try (ResultSet r = p.executeQuery()) { if (r.next()) s.setListings(r.getInt(1)); }
+            }
+            return s;
+        } catch (SQLException e) { throw new AppException("Unable to load sales dashboard.", e); }
+    }
+    }
+    
